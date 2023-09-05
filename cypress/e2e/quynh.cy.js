@@ -49,4 +49,22 @@ describe('Đăng nhập', () => {
     // Kiểm tra xem thông báo lỗi hiển thị
     cy.contains('Mục Địa chỉ email là bắt buộc.').should('be.visible');
   })
+
+  it('Mở menu', () => {
+    // Truy cập trang đăng nhập
+    cy.visit('https://binbin.cozwork.io');
+     // Nhập thông tin đăng nhập
+     cy.get('input[id="email"]').type('quynh123@gmail.com');
+     cy.get('input[id="password"]').type('123');
+ 
+     // Submit form đăng nhập
+     cy.get('button[type="submit"]').click();
+  
+     // Mở Menu
+     cy.get('body > aside:nth-child(4) > ul:nth-child(1) > li:nth-child(24) > a:nth-child(1) > span:nth-child(2)').click();
+  
+     // Thêm phân công mới
+     cy.get('.btn.btn-info.pull-left.new').click();
+
+  })
 });
